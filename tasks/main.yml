@@ -55,4 +55,6 @@
 
 - name: Create accounts
   shell: "prosodyctl register {{ item.user }} {{ item.domain }} {{ item.password }}"
+  args:
+    creates: /var/lib/prosody/{{ item.domain | replace('@','%2e') }}/accounts/{{ item.user }}.dat
   with_items: "{{ prosody_users }}"
