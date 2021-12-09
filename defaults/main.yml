@@ -22,3 +22,8 @@ prosody_hosts:
   - domain: localhost
 prosody_key: /etc/prosody/certs/localhost.key
 prosody_cert: /etc/prosody/certs/localhost.crt
+prosody_users:
+  - user: me
+    domain: example.com
+    state: present
+    password: "{{ vault_my_prosody_password }}"
